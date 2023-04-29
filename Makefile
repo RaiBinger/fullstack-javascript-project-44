@@ -4,3 +4,5 @@ brain-games: #комманда для запуска программы с ук�
 	node bin/brain-games.js
 publish:
 	npm publish --dry-run
+lint:
+	npx eslint .
