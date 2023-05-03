@@ -5,3 +5,7 @@
 ### Maintainability:
 
 <a href="https://codeclimate.com/github/RaiBinger/fullstack-javascript-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/b54029fc969fbe45bddc/maintainability" /></a>
+
+### asciinema
+
+[![asciicast](https://asciinema.org/a/0yzShQFNdzKgZgqCCJAqMr5lX.svg)](https://asciinema.org/a/0yzShQFNdzKgZgqCCJAqMr5lX)
