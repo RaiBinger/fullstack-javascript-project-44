@@ -23,8 +23,7 @@ const isEvenNumber = () => {
       } else {
         return `"no" is wrong answer ;(. Correct answer was "yes".\nLet's try again,${name}`;
       }
-    }
-    if (randomeNum % 2 !== 0) {
+    } else if (randomeNum % 2 !== 0) {
       if (readlineSync.question('Your answer: ').toLowerCase() === 'no') {
         console.log('Correct!');
       } else {
