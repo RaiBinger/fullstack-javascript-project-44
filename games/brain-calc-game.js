@@ -25,7 +25,6 @@ const isExpression = () => {
       default:
         return null;
     }
-    console.log(result);
     const userAnswer = answer();
     if (Number(userAnswer) === result) {
       console.log('Correct!');
