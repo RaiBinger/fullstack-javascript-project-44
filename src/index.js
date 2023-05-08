@@ -29,7 +29,27 @@ const randomOperator = () => {
   return randomValue;
 };
 
+const getGcdArray = (num) => {
+  const gcdArray = [];
+  for (let i = 1; i <= num; i += 1) {
+    if (num % i === 0) {
+      gcdArray.push(i);
+    }
+  }
+  return gcdArray;
+};
+
+const commonGcd = (array, num) => {
+  let result = 0;
+  for (let i = 0; i < array.length; i += 1) {
+    if (num % array[i] === 0) {
+      result = array[i] > result ? array[i] : result;
+    }
+  }
+  return result;
+};
+
 export {
-  question, randomNumber, name, randomOperator, raunds,
+  question, randomNumber, name, randomOperator, raunds, getGcdArray, commonGcd,
 };
 export default answer;

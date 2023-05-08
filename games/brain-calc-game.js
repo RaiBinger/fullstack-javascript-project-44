@@ -29,7 +29,7 @@ const isExpression = () => {
     if (Number(userAnswer) === result) {
       console.log('Correct!');
     } else {
-      return `${userAnswer} is wrong answer ;(. Correct answer was ${String(result)}\nLet's try again, ${name}!`;
+      return `${userAnswer} is wrong answer ;(. Correct answer was ${result}\nLet's try again, ${name}!`;
     }
     i += 1;
     if (i === raunds) {
