@@ -6,7 +6,7 @@ const isEvenNumber = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no"');
   let i = 0;
   while (i !== 3) {
-    const randomNum = randomNumber();
+    const randomNum = randomNumber(1, 10);
     console.log(question(randomNum));
     if (randomNum % 2 === 0) {
       if (answer().toLowerCase() === 'yes') {

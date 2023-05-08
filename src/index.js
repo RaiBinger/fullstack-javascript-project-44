@@ -13,9 +13,9 @@ const question = (item) => {
   return questionUser;
 };
 
-const randomNumber = () => {
-  const min = Math.ceil(1);
-  const max = Math.floor(10);
+const randomNumber = (start, end) => {
+  const min = Math.ceil(start);
+  const max = Math.floor(end);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
