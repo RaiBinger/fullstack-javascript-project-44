@@ -1,11 +1,11 @@
 import answer, {
-  question, randomNumber, name,
+  question, randomNumber, name, raunds,
 } from '../src/index.js';
 
 const isEvenNumber = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no"');
   let i = 0;
-  while (i !== 3) {
+  while (i !== raunds) {
     const randomNum = randomNumber(1, 10);
     console.log(question(randomNum));
     if (randomNum % 2 === 0) {
@@ -22,7 +22,7 @@ const isEvenNumber = () => {
       }
     }
     i += 1;
-    if (i === 3) {
+    if (i === raunds) {
       return `Congratulations, ${name}!`;
     }
   }

@@ -3,6 +3,8 @@ import greeting from './cli.js';
 
 const name = greeting();
 
+const raunds = 3;
+
 const answer = () => {
   const userAnswer = readlineSync.question('Your answer: ');
   return userAnswer;
@@ -28,6 +30,6 @@ const randomOperator = () => {
 };
 
 export {
-  question, randomNumber, name, randomOperator,
+  question, randomNumber, name, randomOperator, raunds,
 };
 export default answer;
