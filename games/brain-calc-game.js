@@ -1,6 +1,8 @@
 import answer, {
-  question, randomNumber, name, randomOperator, raunds,
+  question, randomNumber, name, randomIndex, raunds,
 } from '../src/index.js';
+
+const operatorsArray = ['+', '-', '*'];
 
 const isExpression = () => {
   console.log('What is the result of the expression?');
@@ -8,7 +10,7 @@ const isExpression = () => {
   while (i !== raunds) {
     const leftNumber = randomNumber(0, 100);
     const rightNumber = randomNumber(0, 100);
-    const operatorSimbol = randomOperator();
+    const operatorSimbol = operatorsArray[randomIndex(operatorsArray)];
     const expression = `${leftNumber} ${operatorSimbol} ${rightNumber}`;
     console.log(question(expression));
     let result = 0;
