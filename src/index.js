@@ -21,9 +21,10 @@ const randomizer = (start, end) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-const randomIndex = (array) => {
+const randomItem = (array) => {
   const index = Math.floor(Math.random() * array.length);
-  return index;
+  const item = array[index];
+  return item;
 };
 
 const getGcdArray = (num) => {
@@ -47,6 +48,6 @@ const commonGcd = (array, num) => {
 };
 
 export {
-  question, randomizer, name, randomIndex, raunds, getGcdArray, commonGcd,
+  question, randomizer, name, randomItem, raunds, getGcdArray, commonGcd,
 };
 export default answer;

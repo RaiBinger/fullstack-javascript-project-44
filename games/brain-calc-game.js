@@ -1,5 +1,5 @@
 import answer, {
-  question, randomizer, name, randomIndex, raunds,
+  question, randomizer, name, randomItem, raunds,
 } from '../src/index.js';
 
 const operatorsArray = ['+', '-', '*'];
@@ -10,7 +10,7 @@ const isExpression = () => {
   while (i !== raunds) {
     const leftNumber = randomizer(0, 100);
     const rightNumber = randomizer(0, 100);
-    const operatorSimbol = operatorsArray[randomIndex(operatorsArray)];
+    const operatorSimbol = randomItem(operatorsArray);
     const expression = `${leftNumber} ${operatorSimbol} ${rightNumber}`;
     console.log(question(expression));
     let result = 0;

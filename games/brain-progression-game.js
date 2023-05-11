@@ -1,5 +1,5 @@
 import answer, {
-  question, randomizer, name, raunds, randomIndex,
+  question, randomizer, name, raunds, randomItem,
 } from '../src/index.js';
 
 const isProgression = () => {
@@ -18,15 +18,16 @@ const isProgression = () => {
         progression.push(progression[progression.length - 1] + randomValue);
       }
     }
-    const randomIndexCount = randomIndex(progression);
-    const randomItem = progression[randomIndexCount];
-    const temp = progression.join(' ').replace(randomItem, '..');
-    console.log(question(temp));
+    const item = randomItem(progression);
+    const progressionString = progression.join(' ').replace(item, '..');
+    // const result = item;
+    console.log(question(progressionString));
+
     const userAnswer = answer();
-    if (Number(userAnswer) === randomItem) {
+    if (Number(userAnswer) === item) {
       console.log('Correct!');
     } else {
-      return `${userAnswer} is wrong answer ;(. Correct answer was ${randomItem}\nLet's try again, ${name}!`;
+      return `${userAnswer} is wrong answer ;(. Correct answer was ${item}\nLet's try again, ${name}!`;
     }
     counter += 1;
     if (counter === raunds) {
