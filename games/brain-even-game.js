@@ -1,12 +1,12 @@
 import answer, {
-  question, randomNumber, name, raunds,
+  question, randomizer, name, raunds,
 } from '../src/index.js';
 
 const isEvenNumber = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no"');
   let i = 0;
   while (i !== raunds) {
-    const randomNum = randomNumber(1, 10);
+    const randomNum = randomizer(1, 10);
     console.log(question(randomNum));
     if (randomNum % 2 === 0) {
       if (answer().toLowerCase() === 'yes') {

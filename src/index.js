@@ -15,7 +15,7 @@ const question = (item) => {
   return questionUser;
 };
 
-const randomNumber = (start, end) => {
+const randomizer = (start, end) => {
   const min = Math.ceil(start);
   const max = Math.floor(end);
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -47,6 +47,6 @@ const commonGcd = (array, num) => {
 };
 
 export {
-  question, randomNumber, name, randomIndex, raunds, getGcdArray, commonGcd,
+  question, randomizer, name, randomIndex, raunds, getGcdArray, commonGcd,
 };
 export default answer;

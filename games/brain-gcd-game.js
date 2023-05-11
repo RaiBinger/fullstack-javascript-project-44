@@ -1,13 +1,13 @@
 import answer, {
-  question, randomNumber, name, raunds, getGcdArray, commonGcd,
+  question, randomizer, name, raunds, getGcdArray, commonGcd,
 } from '../src/index.js';
 
 const isGcd = () => {
   console.log('Find the greatest common divisor of given numbers.');
   let i = 0;
   while (i !== raunds) {
-    const first = randomNumber(1, 10);
-    const second = randomNumber(1, 10);
+    const first = randomizer(1, 10);
+    const second = randomizer(1, 10);
     const random = `${first} ${second}`;
     console.log(question(random));
     const min = first < second ? first : second;
