@@ -2,4 +2,4 @@
 
 import greeting from '../src/cli.js';
 
-console.log(greeting());
+greeting();
