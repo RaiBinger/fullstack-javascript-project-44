@@ -1,20 +1,19 @@
-import question, {
-  randomizer, raunds, getDeviderArray, getPrimeNum, logics,
+import isQuestion, {
+  getRandom, raunds, getDeviderArray, isPrimeNum, letAnswerCheck,
 } from '../src/index.js';
 
 const isPrime = () => {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   let counter = 0;
   while (counter !== raunds) {
-    const num = randomizer(2, 20);
+    const num = getRandom(2, 20);
     const deviders = getDeviderArray(num);
-    console.log(deviders);
-    console.log(question(num));
-    const prime = getPrimeNum(deviders);
+    console.log(isQuestion(num));
+    const prime = isPrimeNum(deviders);
 
     counter += 1;
 
-    if (logics(prime, counter) === false) {
+    if (letAnswerCheck(prime, counter) === false) {
       break;
     }
   }

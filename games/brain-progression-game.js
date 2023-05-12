@@ -1,14 +1,14 @@
-import question, {
-  randomizer, raunds, randomItem, logics,
+import isQuestion, {
+  getRandom, raunds, getRandomItem, letAnswerCheck,
 } from '../src/index.js';
 
 const isProgression = () => {
   console.log('What number is missing in the progression?');
   let counter = 0;
   while (counter !== raunds) {
-    const randomCount = randomizer(5, 10); // Количество элементов в прогрессии
-    const randomValue = randomizer(1, 10); // Разница между числами в прогрессии
-    const randomStartCount = randomizer(0, 10); // Число с которого начинается прогрессия
+    const randomCount = getRandom(5, 10); // Количество элементов в прогрессии
+    const randomValue = getRandom(1, 10); // Разница между числами в прогрессии
+    const randomStartCount = getRandom(0, 10); // Число с которого начинается прогрессия
     const progression = [];
 
     for (let i = 0; i < randomCount; i += 1) {
@@ -19,17 +19,16 @@ const isProgression = () => {
       }
     }
 
-    const item = randomItem(progression);
+    const item = getRandomItem(progression);
     const progressionString = progression.join(' ').replace(item, '..');
-    console.log(question(progressionString));
+    console.log(isQuestion(progressionString));
 
     counter += 1;
 
-    if (logics(item, counter) === false) {
+    if (letAnswerCheck(item, counter) === false) {
       break;
     }
   }
-  return '';
 };
 
 export default isProgression;

@@ -1,27 +1,26 @@
-import question, {
-  randomizer, raunds, getDeviderArray, commonGcd, logics,
+import isQuestion, {
+  getRandom, raunds, getDeviderArray, getGcd, letAnswerCheck,
 } from '../src/index.js';
 
 const isGcd = () => {
   console.log('Find the greatest common divisor of given numbers.');
   let counter = 0;
   while (counter !== raunds) {
-    const first = randomizer(1, 10);
-    const second = randomizer(1, 10);
-    const random = `${first} ${second}`;
-    console.log(question(random));
+    const first = getRandom(1, 10);
+    const second = getRandom(1, 10);
+    const coupleNum = `${first} ${second}`;
+    console.log(isQuestion(coupleNum));
     const min = first < second ? first : second;
     const max = first > second ? first : second;
     const gcdMinCollect = getDeviderArray(min);
-    const gcd = commonGcd(gcdMinCollect, max);
+    const gcd = getGcd(gcdMinCollect, max);
 
     counter += 1;
 
-    if (logics(gcd, counter) === false) {
+    if (letAnswerCheck(gcd, counter) === false) {
       break;
     }
   }
-  return '';
 };
 
 export default isGcd;

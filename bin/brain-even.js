@@ -2,4 +2,4 @@
 
 import isEvenNumber from '../games/brain-even-game.js';
 
-console.log(isEvenNumber());
+isEvenNumber();

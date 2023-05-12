@@ -9,13 +9,13 @@ const raunds = 3; /* Константа для хранения общего д�
 количества раундов, чтобы при желании их количество можно было
 изменить в одном месте сразу для всех игр. */
 
-const answer = () => {
+const isAnswer = () => {
   const userAnswer = readlineSync.question('Your answer: ');
   return userAnswer;
 }; /* Функция для получения ответа пользователя и возврата самого
 значения ответа пользователя для дальнейшей передачи в переменную. */
 
-const question = (item) => {
+const isQuestion = (item) => {
   const questionUser = `Question: ${item}`;
   return questionUser;
 }; /*  */
@@ -30,13 +30,13 @@ const isEven = (num) => {
   return result;
 }; /*  */
 
-const randomizer = (start, end) => {
+const getRandom = (start, end) => {
   const min = Math.ceil(start);
   const max = Math.floor(end);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }; /*  */
 
-const randomItem = (array) => {
+const getRandomItem = (array) => {
   const index = Math.floor(Math.random() * array.length);
   const item = array[index];
   return item;
@@ -52,7 +52,7 @@ const getDeviderArray = (num) => {
   return array;
 }; /*  */
 
-const commonGcd = (array, num) => {
+const getGcd = (array, num) => {
   let result = 0;
   for (let i = 0; i < array.length; i += 1) {
     if (num % array[i] === 0) {
@@ -62,7 +62,7 @@ const commonGcd = (array, num) => {
   return result;
 }; /*  */
 
-const getPrimeNum = (array) => {
+const isPrimeNum = (array) => {
   let result = '';
   if (array.length === 2) {
     result = 'yes';
@@ -83,9 +83,9 @@ const letTypeCheck = (input) => {
   return result;
 };
 
-const logics = (input, count) => {
+const letAnswerCheck = (input, count) => {
   let result;
-  const userAnswer = answer();
+  const userAnswer = isAnswer();
   const checkedUserAnswer = letTypeCheck(userAnswer);
   if (checkedUserAnswer === input) {
     console.log('Correct!');
@@ -101,7 +101,7 @@ const logics = (input, count) => {
 };
 
 export {
-  answer, randomizer, name, randomItem, raunds, getDeviderArray,
-  isEven, getPrimeNum, commonGcd, logics, letTypeCheck,
+  isAnswer, getRandom, name, getRandomItem, raunds, getDeviderArray,
+  isEven, isPrimeNum, getGcd, letAnswerCheck, letTypeCheck,
 };
-export default question;
+export default isQuestion;
