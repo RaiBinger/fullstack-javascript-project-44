@@ -1,29 +1,24 @@
-import answer, {
-  question, randomizer, name, raunds, getGcdArray, commonGcd,
+import question, {
+  randomizer, raunds, getDeviderArray, commonGcd, logics,
 } from '../src/index.js';
 
 const isGcd = () => {
   console.log('Find the greatest common divisor of given numbers.');
-  let i = 0;
-  while (i !== raunds) {
+  let counter = 0;
+  while (counter !== raunds) {
     const first = randomizer(1, 10);
     const second = randomizer(1, 10);
     const random = `${first} ${second}`;
     console.log(question(random));
     const min = first < second ? first : second;
     const max = first > second ? first : second;
-    const gcdMinCollect = getGcdArray(min);
+    const gcdMinCollect = getDeviderArray(min);
     const gcd = commonGcd(gcdMinCollect, max);
-    const result = gcd;
-    const userAnswer = answer();
-    if (Number(userAnswer) === result) {
-      console.log('Correct!');
-    } else {
-      return `${userAnswer} is wrong answer ;(. Correct answer was ${result}\nLet's try again, ${name}!`;
-    }
-    i += 1;
-    if (i === raunds) {
-      return `Congratulations, ${name}!`;
+
+    counter += 1;
+
+    if (logics(gcd, counter) === false) {
+      break;
     }
   }
   return '';
