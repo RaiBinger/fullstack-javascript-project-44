@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import isGcd from '../games/brain-gcd-game.js';
+import brainGcd from '../src/games/brain-gcd-game.js';
 
-isGcd();
+brainGcd();
