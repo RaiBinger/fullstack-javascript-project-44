@@ -4,6 +4,12 @@ import gameEngine, {
 
 const task = 'Find the greatest common divisor of given numbers.';
 
+/**
+ * Функция возвращает наибольший общий делитель
+ * @param {*} array - массив делителей
+ * @param {*} num - проверяемое число
+ * @returns Наибольший общий делитель
+ */
 const getGcd = (array, num) => {
   let result = 0;
   for (let i = 0; i < array.length; i += 1) {
@@ -12,22 +18,20 @@ const getGcd = (array, num) => {
     }
   }
   return result;
-}; /* Функция возвращает из коллекции максимальный делитель из возможных для переданного числа */
+};
 
+/**
+ * Функция логики игры
+ * @returns Правильный ответ, item для вопроса
+ */
 const gcd = () => {
-  const firstNumber = randomNumber(1, 10); /* Случайное значение из заданного диапазона. */
-  const secondNumber = randomNumber(1, 10); /* Случайное значение из заданного диапазона. */
-  const coupleNumbers = `${firstNumber} ${secondNumber}`; /* Текстовое представление для формирования вопроса пользователю. */
+  const firstNumber = randomNumber(1, 10);
+  const secondNumber = randomNumber(1, 10);
+  const coupleNumbers = `${firstNumber} ${secondNumber}`;
   const min = firstNumber < secondNumber ? firstNumber : secondNumber;
-  /* Присвоение переменной минимального значения
-  из двух случайных чисел. */
   const max = firstNumber > secondNumber ? firstNumber : secondNumber;
-  /* Присвоение переменной максимального значения
-  из двух случайных чисел. */
-  const gcdMinCollect = getDivisorArray(min); /* Получение всех делителей минимального числа,
-  которые делят его нацело */
-  const result = getGcd(gcdMinCollect, max); /* Перебор всех делителей и поиск максимального
-  значения делителя, который делит максимальное число нацело. */
+  const gcdMinCollect = getDivisorArray(min);
+  const result = getGcd(gcdMinCollect, max);
   return [result, coupleNumbers];
 };
 

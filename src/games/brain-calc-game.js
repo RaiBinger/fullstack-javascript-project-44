@@ -2,18 +2,19 @@ import gameEngine, {
   randomNumber, getRandomItem,
 } from '../index.js';
 
-const simbolArray = ['+', '-', '*']; /* Массив математических операторов. */
+const simbolArray = ['+', '-', '*'];
 
 const task = 'What is the result of the expression?';
 
+/**
+ * Функция логики игры
+ * @returns Правильный ответ, item для вопроса
+ */
 const calcExpression = () => {
-  const leftNumber = randomNumber(0, 10); /* Случайное значение левого
-  операнда из заданного диапазона */
-  const rightNumber = randomNumber(0, 10); /* Случайное значение
-  правого операнда из заданного диапазона */
-  const operator = getRandomItem(simbolArray); /* Случайный
-  математический оператор из массива коллекции операторов. */
-  const expression = `${leftNumber} ${operator} ${rightNumber}`; /* Текстовое представление математического выражения для формирования вопроса пользователю. */
+  const leftNumber = randomNumber(0, 10);
+  const rightNumber = randomNumber(0, 10);
+  const operator = getRandomItem(simbolArray);
+  const expression = `${leftNumber} ${operator} ${rightNumber}`;
   let result = 0; /*  */
   switch (operator) {
     case '+':
@@ -29,8 +30,7 @@ const calcExpression = () => {
       return null;
   }
   return [result, expression];
-}; /* Функция возвращает результат математических операций в зависимости
-от переданных в неё оператора и операндов. Калькулятор. */
+};
 
 const brainCalc = () => gameEngine(task, calcExpression);
 

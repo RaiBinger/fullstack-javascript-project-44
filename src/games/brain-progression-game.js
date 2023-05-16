@@ -4,10 +4,14 @@ import gameEngine, {
 
 const task = 'What number is missing in the progression?';
 
+/**
+ * Функция логики игры
+ * @returns Правильный ответ, item для вопроса
+ */
 const getItemOfProgression = () => {
-  const randomCount = randomNumber(5, 10); // Количество элементов в прогрессии
-  const randomDiff = randomNumber(1, 10); // Разница между числами в прогрессии
-  const randomStartCount = randomNumber(0, 10); // Число с которого начинается прогрессия
+  const randomCount = randomNumber(5, 10);
+  const randomDiff = randomNumber(1, 10);
+  const randomStartCount = randomNumber(0, 10);
   const progression = [];
 
   for (let i = 0; i < randomCount; i += 1) {
@@ -16,10 +20,10 @@ const getItemOfProgression = () => {
     } else {
       progression.push(progression[progression.length - 1] + randomDiff);
     }
-  } /* Цикл для заполнения массива прогрессии. */
+  }
 
-  const item = getRandomItem(progression); /* Присвоение переменной случайного элемента массива */
-  const progressionString = progression.join(' ').replace(item, '..'); /* Текстовое представление для формирования вопроса пользователю. */
+  const item = getRandomItem(progression);
+  const progressionString = progression.join(' ').replace(item, '..');
   return [item, progressionString];
 };
 

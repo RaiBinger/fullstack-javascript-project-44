@@ -4,6 +4,11 @@ import gameEngine, {
 
 const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
+/**
+ * Функция проверяет простое число или нет
+ * @param {*} array - массив делителей
+ * @returns Правильный ответ
+ */
 const hasPrimeNum = (array) => {
   let result = '';
   if (array.length === 2) {
@@ -12,13 +17,16 @@ const hasPrimeNum = (array) => {
     result = 'no';
   }
   return result;
-}; /* Функция возвращает результат проверки числа простое или не простое. */
+};
 
+/**
+ * Функция логики игры
+ * @returns Правильный ответ, item для вопроса
+ */
 const primeNumber = () => {
-  const num = randomNumber(2, 20); /* Случайное значение из заданного диапазона. */
-  const divisorArray = getDivisorArray(num); /* Получение массива коллекции делителей, на которые
-  переданное число может быть поделено без остатка. */
-  const result = hasPrimeNum(divisorArray); /* Проверка числа простое или нет. */
+  const num = randomNumber(2, 20);
+  const divisorArray = getDivisorArray(num);
+  const result = hasPrimeNum(divisorArray);
   return [result, num];
 };
 

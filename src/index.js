@@ -1,38 +1,58 @@
 import readlineSync from 'readline-sync'; // это библиотека с Github позволяет работать в консоли и ожидать ответа пользователя. Библиотека для чтения пользовательского ввода.
 import greeting from './cli.js';
 
-const getName = greeting(); /* Константа для хранения результата работы
-функции приветствия, чтобы можно было дальше использовать имя
-пользователя и не вызывать функцию повторно. */
+/**
+ * Константа для хранения имени пользователя
+ */
+const getName = greeting();
 
-const ROUNDS_COUNT = 3; /* Константа для хранения общего для всех игр
-количества раундов, чтобы при желании их количество можно было
-изменить в одном месте сразу для всех игр. */
+/**
+ * Константа для хранения общего для всех игр количества раундов
+ */
+const ROUNDS_COUNT = 3;
 
+/**
+ * Функция запрашивает и возвращает ответ пользователя
+ */
 const askAnswer = () => {
   const userAnswer = readlineSync.question('Your answer: ');
   return userAnswer;
-}; /* Функция для получения ответа пользователя и возврата самого
-значения ответа пользователя для дальнейшей передачи в переменную. */
+};
 
+/**
+ * Функция выводит вопрос для пользователя на экран
+ * @param {*} item - данные для вопроса
+*/
 const giveQuestion = (item) => {
   const question = console.log(`Question: ${item}`);
   return question;
-}; /* В этой функции формируется вопрос для пользователя из текста и данных для вывода на экран. */
+};
 
+/**
+ * Функция возвращает случайное число
+ * @param {number} start - нижняя граница
+ * @param {number} end - верхняя граница
+ */
 const randomNumber = (start, end) => {
   const min = Math.ceil(start);
   const max = Math.floor(end);
   return Math.floor(Math.random() * (max - min + 1)) + min;
-}; /* Функция возвращает случайное число в зависимости от заданного
-интервала от стартовой и конечной границ включительно. */
+};
 
+/**
+ * Функция возвращает случайный элемент переданного массива.
+ * @param {*} array - массив
+ */
 const getRandomItem = (array) => {
   const index = Math.floor(Math.random() * array.length);
   const item = array[index];
   return item;
-}; /* Функция возвращает случайный элемент переданного массива. */
+};
 
+/**
+ * Функция возвращает массив делителей
+ * @param {number} num - число
+ */
 const getDivisorArray = (num) => {
   const array = [];
   for (let i = 1; i <= num; i += 1) {
@@ -41,9 +61,12 @@ const getDivisorArray = (num) => {
     }
   }
   return array;
-}; /* Функция возвращает массив коллекцию делителей, на которые
-переданное число может быть поделено без остатка. */
+};
 
+/**
+ * Функция возвращает результат проверки типа данных и преобразует
+ * @param {*} input - ввод данных пользователя
+ */
 const typeCheck = (input) => {
   const temp = Number(input);
   let result;
@@ -53,8 +76,13 @@ const typeCheck = (input) => {
     result = temp;
   }
   return result;
-}; /* Функция возвращает результат после проверки типа данны и приведения к нужному типу данных. */
+};
 
+/**
+ * Функция возвращает результат проверки ответа пользователя.
+ * @param {*} input - правильный ответ
+ * @param {number} count - счетчик цикла
+ */
 const answerCheck = (input, count) => {
   let result;
   const userAnswer = askAnswer();
@@ -70,24 +98,27 @@ const answerCheck = (input, count) => {
     result = false;
   }
   return result;
-}; /* Функция возвращает результат проверки правильности ответа пользователя на вопрос. */
+};
 
+/**
+ * Функция игрового движка
+ * @param {*} task - условие игры
+ * @param {*} gameLogic - логика конкретной игры
+ */
 const gameEngine = (task, gameLogic) => {
   console.log(task);
-  let counter = 0; /* Счётчик цикла while */
+  let counter = 0;
   while (counter !== ROUNDS_COUNT) {
-    const resultGameLogic = gameLogic(); /* Вычисление
-    математического выражения для дальнейшей проверки правильности ответа пользователя. */
+    const resultGameLogic = gameLogic();
     const result = resultGameLogic[0];
     const question = resultGameLogic[1];
-    giveQuestion(question); /* Вопрос пользователю */
+    giveQuestion(question);
 
-    counter += 1; /* Увеличение счетчика цикла */
+    counter += 1;
 
     if (answerCheck(result, counter) === false) {
       break;
-    } /* Выполнение проверки правильности ответа пользователя
-    и остановка выполнения в случае неверного ответа. */
+    }
   }
 };
 
