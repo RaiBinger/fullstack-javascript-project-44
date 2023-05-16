@@ -8,7 +8,7 @@ import greeting from './cli.js';
 /**
  * Константа для хранения имени пользователя
  */
-const getName = greeting();
+const name = greeting();
 
 /**
  * Константа для хранения общего для всех игр количества раундов
@@ -21,15 +21,6 @@ const ROUNDS_COUNT = 3;
 const askAnswer = () => {
   const userAnswer = readlineSync.question('Your answer: ');
   return userAnswer;
-};
-
-/**
- * Функция выводит вопрос для пользователя на экран
- * @param {*} item - данные для вопроса
-*/
-const giveQuestion = (item) => {
-  const question = console.log(`Question: ${item}`);
-  return question;
 };
 
 /**
@@ -95,10 +86,10 @@ const answerCheck = (input, count) => {
     console.log('Correct!');
     result = true;
     if (count === ROUNDS_COUNT) {
-      console.log(`Congratulations, ${getName}!`);
+      console.log(`Congratulations, ${name}!`);
     }
   } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${input}'\nLet's try again, ${getName}!`);
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${input}'\nLet's try again, ${name}!`);
     result = false;
   }
   return result;
@@ -116,7 +107,7 @@ const gameEngine = (task, gameLogic) => {
     const resultGameLogic = gameLogic();
     const result = resultGameLogic[0];
     const question = resultGameLogic[1];
-    giveQuestion(question);
+    console.log(`Question: ${question}`);
 
     counter += 1;
 
@@ -128,6 +119,6 @@ const gameEngine = (task, gameLogic) => {
 
 export {
   askAnswer, randomNumber, getRandomItem, getDivisorArray,
-  answerCheck, typeCheck, giveQuestion,
+  answerCheck, typeCheck,
 };
 export default gameEngine;

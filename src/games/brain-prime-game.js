@@ -23,13 +23,13 @@ const hasPrimeNum = (array) => {
  * Функция логики игры
  * @returns Правильный ответ, item для вопроса
  */
-const primeNumber = () => {
-  const num = randomNumber(2, 20);
-  const divisorArray = getDivisorArray(num);
-  const result = hasPrimeNum(divisorArray);
-  return [result, num];
+const generateRound = () => {
+  const question = randomNumber(2, 20);
+  const divisorArray = getDivisorArray(question);
+  const answer = hasPrimeNum(divisorArray);
+  return [answer, question];
 };
 
-const brainPrime = () => gameEngine(task, primeNumber);
+const brainPrime = () => gameEngine(task, generateRound);
 
 export default brainPrime;

@@ -24,17 +24,17 @@ const getGcd = (array, num) => {
  * Функция логики игры
  * @returns Правильный ответ, item для вопроса
  */
-const gcd = () => {
+const generateRound = () => {
   const firstNumber = randomNumber(1, 10);
   const secondNumber = randomNumber(1, 10);
-  const coupleNumbers = `${firstNumber} ${secondNumber}`;
+  const question = `${firstNumber} ${secondNumber}`;
   const min = firstNumber < secondNumber ? firstNumber : secondNumber;
   const max = firstNumber > secondNumber ? firstNumber : secondNumber;
   const gcdMinCollect = getDivisorArray(min);
-  const result = getGcd(gcdMinCollect, max);
-  return [result, coupleNumbers];
+  const answer = getGcd(gcdMinCollect, max);
+  return [answer, question];
 };
 
-const brainGcd = () => gameEngine(task, gcd);
+const brainGcd = () => gameEngine(task, generateRound);
 
 export default brainGcd;

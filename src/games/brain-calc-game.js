@@ -10,12 +10,13 @@ const task = 'What is the result of the expression?';
  * Функция логики игры
  * @returns Правильный ответ, item для вопроса
  */
-const calcExpression = () => {
+const generateRound = () => {
   const leftNumber = randomNumber(0, 10);
   const rightNumber = randomNumber(0, 10);
   const operator = getRandomItem(simbolArray);
-  const expression = `${leftNumber} ${operator} ${rightNumber}`;
-  let result = 0; /*  */
+  const question = `${leftNumber} ${operator} ${rightNumber}`;
+
+  let result = 0;
   switch (operator) {
     case '+':
       result = leftNumber + rightNumber;
@@ -29,9 +30,11 @@ const calcExpression = () => {
     default:
       return null;
   }
-  return [result, expression];
+
+  const answer = result;
+  return [answer, question];
 };
 
-const brainCalc = () => gameEngine(task, calcExpression);
+const brainCalc = () => gameEngine(task, generateRound);
 
 export default brainCalc;

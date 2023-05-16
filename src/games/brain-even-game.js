@@ -23,12 +23,12 @@ const hasEven = (num) => {
  * Функция логики игры
  * @returns Правильный ответ, item для вопроса
  */
-const hasEvenOrOdd = () => {
-  const num = randomNumber(1, 10);
-  const result = hasEven(num);
-  return [result, num];
+const generateRound = () => {
+  const question = randomNumber(1, 10);
+  const answer = hasEven(question);
+  return [answer, question];
 };
 
-const brainEven = () => gameEngine(task, hasEvenOrOdd);
+const brainEven = () => gameEngine(task, generateRound);
 
 export default brainEven;
