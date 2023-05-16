@@ -1,4 +1,8 @@
-import readlineSync from 'readline-sync'; // это библиотека с Github позволяет работать в консоли и ожидать ответа пользователя. Библиотека для чтения пользовательского ввода.
+/**
+ * Библиотека для чтения пользовательского ответа из консоли
+ */
+import readlineSync from 'readline-sync';
+
 import greeting from './cli.js';
 
 /**
