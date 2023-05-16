@@ -18,13 +18,13 @@ const calcExpression = () => {
   let result = 0; /*  */
   switch (operator) {
     case '+':
-      result = leftNumber + rightNumber; /*  */
+      result = leftNumber + rightNumber;
       break;
     case '-':
-      result = leftNumber - rightNumber; /*  */
+      result = leftNumber - rightNumber;
       break;
     case '*':
-      result = leftNumber * rightNumber; /*  */
+      result = leftNumber * rightNumber;
       break;
     default:
       return null;
