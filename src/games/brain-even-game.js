@@ -21,7 +21,7 @@ const hasEven = (num) => {
 
 /**
  * Функция логики игры
- * @returns Правильный ответ, item для вопроса
+ * @returns Правильный ответ, вопрос
  */
 const generateRound = () => {
   const question = randomNumber(1, 10);

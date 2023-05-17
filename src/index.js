@@ -6,11 +6,6 @@ import readlineSync from 'readline-sync';
 import greeting from './cli.js';
 
 /**
- * Константа для хранения имени пользователя
- */
-const name = greeting();
-
-/**
  * Константа для хранения общего для всех игр количества раундов
  */
 const ROUNDS_COUNT = 3;
@@ -19,6 +14,7 @@ const ROUNDS_COUNT = 3;
  * Функция возвращает случайное число
  * @param {number} start - нижняя граница
  * @param {number} end - верхняя граница
+ * @returns случайное число
  */
 const randomNumber = (start, end) => {
   const min = Math.ceil(start);
@@ -29,6 +25,7 @@ const randomNumber = (start, end) => {
 /**
  * Функция возвращает случайный элемент переданного массива.
  * @param {*} array - массив
+ * @returns случайный элемент массива
  */
 const getRandomItem = (array) => {
   const index = Math.floor(Math.random() * array.length);
@@ -39,6 +36,7 @@ const getRandomItem = (array) => {
 /**
  * Функция возвращает массив делителей
  * @param {number} num - число
+ * @returns массив
  */
 const getDivisorArray = (num) => {
   const array = [];
@@ -53,6 +51,7 @@ const getDivisorArray = (num) => {
 /**
  * Функция возвращает результат проверки типа данных и преобразует
  * @param {*} input - ввод данных пользователя
+ * @returns число или строка
  */
 const typeCheck = (input) => {
   const temp = Number(input);
@@ -67,22 +66,23 @@ const typeCheck = (input) => {
 
 /**
  * Функция возвращает результат проверки ответа пользователя.
- * @param {*} input - правильный ответ
+ * @param {*} answer - правильный ответ
  * @param {number} count - счетчик цикла
+ * @param {string} name - имя пользователя
+ * @returns true or false
  */
-const answerCheck = (input, count) => {
+const answerCheck = (answer, count, name) => {
   let result;
-  // const userAnswer = askAnswer();
   const userAnswer = readlineSync.question('Your answer: ');
   const userAnswerCheck = typeCheck(userAnswer);
-  if (userAnswerCheck === input) {
+  if (userAnswerCheck === answer) {
     console.log('Correct!');
     result = true;
     if (count === ROUNDS_COUNT) {
       console.log(`Congratulations, ${name}!`);
     }
   } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${input}'\nLet's try again, ${name}!`);
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'\nLet's try again, ${name}!`);
     result = false;
   }
   return result;
@@ -91,20 +91,21 @@ const answerCheck = (input, count) => {
 /**
  * Функция игрового движка
  * @param {*} task - условие игры
- * @param {*} gameLogic - логика конкретной игры
+ * @param {*} generateRound - логика конкретной игры
  */
-const gameEngine = (task, gameLogic) => {
+const gameEngine = (task, generateRound) => {
+  const name = greeting();
   console.log(task);
   let counter = 0;
   while (counter !== ROUNDS_COUNT) {
-    const resultGameLogic = gameLogic();
-    const result = resultGameLogic[0];
-    const question = resultGameLogic[1];
+    const resultRound = generateRound();
+    const answer = resultRound[0];
+    const question = resultRound[1];
     console.log(`Question: ${question}`);
 
     counter += 1;
 
-    if (answerCheck(result, counter) === false) {
+    if (answerCheck(answer, counter, name) === false) {
       break;
     }
   }
@@ -112,6 +113,5 @@ const gameEngine = (task, gameLogic) => {
 
 export {
   randomNumber, getRandomItem, getDivisorArray,
-  answerCheck, typeCheck,
 };
 export default gameEngine;

@@ -7,7 +7,7 @@ const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 /**
  * Функция проверяет простое число или нет
  * @param {*} array - массив делителей
- * @returns Правильный ответ
+ * @returns Да или нет
  */
 const hasPrimeNum = (array) => {
   let result = '';
@@ -21,7 +21,7 @@ const hasPrimeNum = (array) => {
 
 /**
  * Функция логики игры
- * @returns Правильный ответ, item для вопроса
+ * @returns Правильный ответ, вопрос
  */
 const generateRound = () => {
   const question = randomNumber(2, 20);

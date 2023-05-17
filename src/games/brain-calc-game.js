@@ -8,7 +8,7 @@ const task = 'What is the result of the expression?';
 
 /**
  * Функция логики игры
- * @returns Правильный ответ, item для вопроса
+ * @returns Правильный ответ, вопрос
  */
 const generateRound = () => {
   const leftNumber = randomNumber(0, 10);

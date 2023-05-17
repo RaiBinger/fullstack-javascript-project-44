@@ -6,7 +6,7 @@ const task = 'What number is missing in the progression?';
 
 /**
  * Функция логики игры
- * @returns Правильный ответ, item для вопроса
+ * @returns Правильный ответ, вопрос
  */
 const generateRound = () => {
   const count = randomNumber(5, 10);

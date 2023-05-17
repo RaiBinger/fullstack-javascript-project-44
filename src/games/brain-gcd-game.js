@@ -22,7 +22,7 @@ const getGcd = (array, num) => {
 
 /**
  * Функция логики игры
- * @returns Правильный ответ, item для вопроса
+ * @returns Правильный ответ, вопрос
  */
 const generateRound = () => {
   const firstNumber = randomNumber(1, 10);
