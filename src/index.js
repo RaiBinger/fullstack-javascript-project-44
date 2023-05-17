@@ -16,14 +16,6 @@ const name = greeting();
 const ROUNDS_COUNT = 3;
 
 /**
- * Функция запрашивает и возвращает ответ пользователя
- */
-const askAnswer = () => {
-  const userAnswer = readlineSync.question('Your answer: ');
-  return userAnswer;
-};
-
-/**
  * Функция возвращает случайное число
  * @param {number} start - нижняя граница
  * @param {number} end - верхняя граница
@@ -80,7 +72,8 @@ const typeCheck = (input) => {
  */
 const answerCheck = (input, count) => {
   let result;
-  const userAnswer = askAnswer();
+  // const userAnswer = askAnswer();
+  const userAnswer = readlineSync.question('Your answer: ');
   const userAnswerCheck = typeCheck(userAnswer);
   if (userAnswerCheck === input) {
     console.log('Correct!');
@@ -118,7 +111,7 @@ const gameEngine = (task, gameLogic) => {
 };
 
 export {
-  askAnswer, randomNumber, getRandomItem, getDivisorArray,
+  randomNumber, getRandomItem, getDivisorArray,
   answerCheck, typeCheck,
 };
 export default gameEngine;
