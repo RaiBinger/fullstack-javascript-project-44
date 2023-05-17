@@ -98,9 +98,7 @@ const gameEngine = (task, generateRound) => {
   console.log(task);
   let counter = 0;
   while (counter !== ROUNDS_COUNT) {
-    const resultRound = generateRound();
-    const answer = resultRound[0];
-    const question = resultRound[1];
+    const [answer, question] = generateRound();
     console.log(`Question: ${question}`);
 
     counter += 1;
